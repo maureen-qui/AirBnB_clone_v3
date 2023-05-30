@@ -75,3 +75,13 @@ def update_place(place_id):
             setattr(place, key, value)
     place.save()
     return jsonify(place.to_dict()), 200
+
+@app_views.route('/places_search', methods=['POST'], strict_slashes=False)
+def search_places():
+    """Searches for Place objects based on request JSON body"""
+    if not request.is_json:
+        return jsonify({"error": "Not a JSON"}), 400
+
+    # Add your implementation here
+
+    return jsonify({}), 200
