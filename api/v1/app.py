@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Module for first API """
 
+from flask import jsonify
 from flask import Flask
 from api.v1.views import app_views
 from models import storage
@@ -19,6 +20,7 @@ def teardown_appcontext(exception):
 
 @app.errorhandler(404)
 def not_found(error):
+    """Handles 404 errors"""
     response = jsonify({"error": "Not found"})
     response.status_code = 404
     return response

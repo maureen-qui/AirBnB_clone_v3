@@ -7,6 +7,9 @@ from flask import jsonify
 from api.v1.views import app_views
 from models import storage
 
+classes = {"amenities": "Amenity", "cities": "City", "places": "Place",
+           "reviews": "Review", "states": "State", "users": "User"}
+
 app_views = Blueprint('app_views', __name__, url_prefix='/api/v1'
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
