@@ -6,7 +6,7 @@ Defines the RESTful API actions for Place objects
 from api.v1.views import app_views
 from flask import abort, jsonify, request
 from models import storage, Place, City, User
-
+from models.place import Place
 
 @app_views.route('/cities/<city_id>/places', methods=['GET'])
 def get_city_places(city_id):
