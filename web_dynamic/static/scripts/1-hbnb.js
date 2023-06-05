@@ -1,5 +1,6 @@
 $(document).ready(init);
 
+<script src="../static/scripts/1-hbnb.js"></script>
 function init () {
   const amenityObj = {};
   $('.amenities .popover input').change(function () {

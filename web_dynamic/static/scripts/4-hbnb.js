@@ -55,6 +55,36 @@ function fetchPlaces () {
 	      $('SECTION.places').append(article.join(''));
       }
     },
+	  $('button').click(function () {
+    // Retrieve the list of checked amenities
+    var checkedAmenities = $('input[type=checkbox]:checked').map(function () {
+        return $(this).val();
+    }).get();
+
+    // Create the data object to be sent in the POST request
+    var requestData = {
+        amenities: checkedAmenities
+    };
+
+    // Update the URL for the POST request to the correct endpoint
+    var url = '/places_search';  // Replace with the appropriate route for places_search in your application
+
+    // Send the POST request
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: JSON.stringify(requestData),
+        contentType: 'application/json',
+        success: function (response) {
+            // Handle the response from the server
+            console.log(response);
+        },
+        error: function (error) {
+            // Handle any errors that occur during the request
+            console.error(error);
+        }
+    });
+});
     error: function (error) {
       console.log(error);
     }
